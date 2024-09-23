@@ -1,53 +1,34 @@
+import { useState } from "react";
 
-import Users from "./users"
-import "./App.css"
-function App() {
-  
-  const users =[
+function app()
+{
+  const [cnt,setcnt] =useState(0);
+
+  const inc =() =>
+  {
+    if(cnt )
     {
-      grid :1,
-      name:'kishan',
-      email : 'kishan@gmail,com',
-      password: 'kishan@235',
-      course:["html","css","bootstrap","js"],
-      city:"surat"
-    },
-    {
-      grid :2,
-      name:'jay',
-      email : 'jay@gmail.com',
-      password: 'jay@235',
-      course:["photoshop","figma","illustator","adobe xd"],
-      city:"rajkot"
-    },
-    {
-      grid :3,
-      name:'ajay',
-      email : 'ajay@gmail.com',
-      password: 'ajay@235',
-      course:["html","css","btstrap","ndejs"],
-      city:"amreli"
-    },
-    {
-      grid :4,
-      name:'nisha',
-      email : 'nisha@gmail.com',
-      password: 'nisha@235',
-      course:["html","react js ","css","python"],
-      city:"vadodra"
+      setcnt(cnt + 1)
     }
-  ]
-  
-  
+  }
 
+  const dec =()=>
+  {
+    setcnt(cnt - 1)
+  }
+  
   return (
-    <div>
-      <Users
-        us={users}
-      />
+
+    <div align="center">
+      <h2>Count :- {cnt}</h2>
+      <button onClick={()=> inc()}>
+        +
+      </button>
+      <button onClick={()=>dec()}>
+        -
+      </button>
 
     </div>
   )
-}
 
-export default App
+}
